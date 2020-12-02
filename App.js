@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Button, Text, View } from 'react-native';
 
+const image = { "./home.png" };
+
 export default function App() {
   const [outputText, setOutputText] = useState("This is Nathan and Sam's scheduling app");
   return (
@@ -19,4 +21,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 });
