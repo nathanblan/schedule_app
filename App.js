@@ -20,6 +20,12 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground source={background} style={styles.image}>
 
+        <View style={styles.null}>
+          <View>
+
+          </View>
+        </View>
+
         <View style={styles.text}>
           <Text>{outputText}</Text>
           <Button title="Change Text" onPress={() => setOutputText("The text changed")}/>
