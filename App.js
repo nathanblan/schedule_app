@@ -48,7 +48,7 @@ export default function App() {
               //textDayHeaderFontFamily: 'monospace',
               //textDayFontWeight: '300',
               //textMonthFontWeight: 'bold',
-              textDayHeaderFontWeight: '300',
+              textDayHeaderFontWeight: '500',
               textDayFontSize: 16,
               textMonthFontSize: 32,
               textDayHeaderFontSize: 16
