@@ -14,6 +14,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 
+import jumpToDate from './components/jumpToDate'
+import openAgenda from './components/openAgenda'
+
 //retrieve image for background
 const backgroundimg = { uri: "https://raw.githubusercontent.com/nathanblan/schedule_app/master/assets/home.png" };
 
@@ -38,16 +41,7 @@ export default function App() {
               console.log('Modal has been closed.');
             }}>
 
-            <View style={styles.modal}>
-              <Button
-                title="Click To Close Modal"
-                onPress={() => {
-                  setShowModal(!showModal);
-                }}
-              />
-            </View>
-
-            <View>
+            <View style={styles.agenda}>
               <Agenda
                 // The list of items that have to be displayed in agenda. If you want to render item as empty date
                 // the value of date key has to be an empty array []. If there exists no value for date key it is
@@ -114,6 +108,17 @@ export default function App() {
                 // Agenda container style
                 style={{}}
               />
+
+              <Button
+                title="Click To Close Modal"
+                onPress={() => {
+                  setShowModal(!showModal);
+                }}
+              />
+            </View>
+
+            <View>
+
             </View>
           </Modal>
 
@@ -205,11 +210,12 @@ const styles = StyleSheet.create({
   calendar: {
     height: '70%'
   },
-  modal: {
+  agenda: {
     flex: 1,
-    height: '60%',
+    height: '70%',
+    width: '100%',
     alignItems: 'center',
-    //backgroundColor: '#00ff00',
+    backgroundColor: '#12b6e3',
     padding: '20%',
   },
 });
