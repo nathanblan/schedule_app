@@ -38,16 +38,13 @@ export default function App() {
             console.log('Modal has been closed.');
           }}>
 
-          <View style={styles.agenda}>
+          <View style={styles.agendaContainer}>
             <Agenda
               // The list of items that have to be displayed in agenda. If you want to render item as empty date
               // the value of date key has to be an empty array []. If there exists no value for date key it is
               // considered that the date in question is not yet loaded
               items={{
-                '2020-05-22': [{ name: 'item 1 - any js object' }],
-                '2020-05-23': [{ name: 'item 2 - any js object', height: 80 }],
-                '2020-05-24': [],
-                '2020-05-25': [{ name: 'item 3 - any js object' }, { name: 'any js object' }]
+
               }}
               // Callback that gets called when items for a certain month should be loaded (month became visible)
               loadItemsForMonth={(month) => { console.log('trigger items loading') }}
@@ -60,10 +57,6 @@ export default function App() {
               // Initially selected day
               selected={'2020-05-16'}
               // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
-              minDate={'2020-05-10'}
-              // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
-              maxDate={'2020-05-30'}
-              // Max amount of months allowed to scroll to the past. Default = 50
               pastScrollRange={50}
               // Max amount of months allowed to scroll to the future. Default = 50
               futureScrollRange={50}
@@ -80,12 +73,8 @@ export default function App() {
               // Specify your item comparison function for increased performance
               rowHasChanged={(r1, r2) => { return r1.text !== r2.text }}
               // Hide knob button. Default = false
-              hideKnob={true}
-              // By default, agenda dates are marked if they have at least one item, but you can override this if needed
               markedDates={{
-                '2020-05-16': { selected: true, marked: true },
-                '2020-05-17': { marked: true },
-                '2020-05-18': { disabled: true }
+
               }}
               // If disabledByDefault={true} dates flagged as not disabled will be enabled. Default = false
               disabledByDefault={true}
@@ -94,19 +83,20 @@ export default function App() {
               // Set this true while waiting for new data from a refresh
               refreshing={false}
               // Add a custom RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView.
-              refreshControl={null}
+              //refreshControl={null}
               // Agenda theme
-              theme={{
+              /*theme={{
                 agendaDayTextColor: 'yellow',
                 agendaDayNumColor: 'green',
                 agendaTodayColor: 'red',
-                agendaKnobColor: 'blue'
+                agendaKnobColor: 'blue' 
               }}
+              */
               // Agenda container style
-              style={{}}
+              style={[styles.agenda]}
             />
-
             <Button
+              style={styles.tempCloseModal}
               title="Click To Close Modal"
               onPress={() => {
                 setShowModal(!showModal);
@@ -187,7 +177,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column"
   },
   imageBackground: {
     flex: 1,
@@ -213,8 +202,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '70%',
     width: '100%',
-    alignItems: 'center',
+    backgroundColor: '#12b6e300'
+  },
+  tempCloseModal: {
+    flex: 1,
     backgroundColor: '#12b6e3',
-    padding: '20%',
+    padding: '20%'
   },
 });
